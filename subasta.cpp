@@ -24,7 +24,7 @@ void CASA::cargar()
 		{
 			cout<<"Dar puja del comprador "<<nPujas+1<<" en bsf: ";
 			cin>>puja[nPujas];
-			if(puja[nPujas]<1250000)cout<<"Puja demasiado baja, el minimo es 1250000 bsf\n";
+			if(puja[nPujas]<1250000)cout<<"Puja demasiado baja, el minimo es 1.250.000 bsf\n";
 		}while(puja[nPujas]<1250000);
 		cout<<"\nDar cedula del comprador "<<nPujas+1<<": ";
 		cin>>id[nPujas];
@@ -48,7 +48,7 @@ void CASA::mayorOferta()
 }
 float CASA::ganancia()
 {
-	return puja[ganador];
+	return puja[ganador]-1250000;
 }
 int main()
 {
@@ -69,5 +69,4 @@ int main()
     cin.ignore();
 	return 0;
 }
-
 
