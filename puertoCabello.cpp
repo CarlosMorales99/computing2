@@ -39,8 +39,23 @@ class PESQUERO:public BARCO
 		char clasif;//a=atunero,p=palangrero,c=cerquero
 };
 //Funciones globales
-void validNat(int &objetivo);
-//Diseño de los metodos de BARCO
+void validNat(int &objetivo)
+{
+	while(!(cin>>objetivo)||(objetivo<0))
+	{
+		cout<<"\nError: El valor debe ser entero y mayor a 0.\n"
+		<<"Ingrese nuevamente su respuesta: ";
+		cin.clear();
+		cin.ignore();
+	}
+}
+void mensajeEspera()
+{
+	std::cout<<"\n\nPresione una tecla para continuar . . .";
+	std::cin.sync();
+	std::cin.get();
+}
+//DiseÃ±o de los metodos de BARCO
 void BARCO::leer()
 {
 	cout<<"Ingrese el nombre del barco: ";
@@ -61,7 +76,7 @@ void BARCO::mostrar()
 {
 	cout<<"\n\nNombre="<<nombre;
 }
-//Diseño de los metodos CRUCERO
+//DiseÃ±o de los metodos CRUCERO
 void CRUCERO::leer()
 {
 	BARCO::leer();
@@ -76,7 +91,7 @@ void CRUCERO::mostrar()
 		cout<<"\nTuristas="<<numTuris;
 	}
 }
-//Diseño de los metodos PORTAAVIONES
+//DiseÃ±o de los metodos PORTAAVIONES
 void PORTAAVIONES::leer()
 {
 	BARCO::leer();
@@ -93,7 +108,7 @@ void PORTAAVIONES::mostrar()
 	cout<<"\nTripulantes="<<cantTrip;
 	}
 }
-//Diseño de los metodos PESQUERO
+//DiseÃ±o de los metodos PESQUERO
 void PESQUERO::leer()
 {
 	BARCO::leer();
@@ -117,22 +132,6 @@ void PESQUERO::mostrar()
 		BARCO::mostrar();
 		cout<<"\nPescadores="<<numPesc;
 	}
-}
-void validNat(int &objetivo)
-{
-	while(!(cin>>objetivo)||(objetivo<0))
-	{
-		cout<<"\nError: El valor debe ser entero y mayor a 0.\n"
-		<<"Ingrese nuevamente su respuesta: ";
-		cin.clear();
-		cin.ignore();
-	}
-}
-void mensajeEspera()
-{
-	std::cout<<"\n\nPresione una tecla para continuar . . .";
-	std::cin.sync();
-	std::cin.get();
 }
 //Cuerpo Principal
 int main(int argc, char** argv) 
@@ -226,6 +225,6 @@ int main(int argc, char** argv)
 			mensajeEspera();
 		}
 	}while(selec!=0);
-		return 0;
+	return 0;
 }
 
